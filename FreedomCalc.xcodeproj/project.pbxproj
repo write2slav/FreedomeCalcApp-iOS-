@@ -14,6 +14,7 @@
 		840195EE2080A480000901B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840195EC2080A480000901B5 /* LaunchScreen.storyboard */; };
 		840195F62080A94A000901B5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840195F52080A94A000901B5 /* SecondViewController.swift */; };
 		840195F82080B4F8000901B5 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840195F72080B4F8000901B5 /* ThirdViewController.swift */; };
+		840195FC2080F10A000901B5 /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840195FB2080F10A000901B5 /* ForthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		840195EF2080A480000901B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		840195F52080A94A000901B5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		840195F72080B4F8000901B5 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		840195FB2080F10A000901B5 /* ForthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				840195E52080A480000901B5 /* FirstViewController.swift */,
 				840195F52080A94A000901B5 /* SecondViewController.swift */,
 				840195F72080B4F8000901B5 /* ThirdViewController.swift */,
+				840195FB2080F10A000901B5 /* ForthViewController.swift */,
 				840195E72080A480000901B5 /* Main.storyboard */,
 				840195EA2080A480000901B5 /* Assets.xcassets */,
 				840195EC2080A480000901B5 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				840195E62080A480000901B5 /* FirstViewController.swift in Sources */,
 				840195F82080B4F8000901B5 /* ThirdViewController.swift in Sources */,
 				840195E42080A480000901B5 /* AppDelegate.swift in Sources */,
+				840195FC2080F10A000901B5 /* ForthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NW8W7AWS9E;
 				INFOPLIST_FILE = FreedomCalc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jnn.FreedomCalc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NW8W7AWS9E;
 				INFOPLIST_FILE = FreedomCalc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jnn.FreedomCalc;
 				PRODUCT_NAME = "$(TARGET_NAME)";

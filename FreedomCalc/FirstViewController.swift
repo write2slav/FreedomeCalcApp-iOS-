@@ -10,10 +10,14 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var topLable: UILabel!
+    
     @IBAction func buttonPressed(_ sender: Any) {
         print("READY Button")
         performSegue(withIdentifier: "goToSecondView", sender: self)
+        
         
     }
     override func viewDidLoad() {
@@ -26,6 +30,8 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     
 

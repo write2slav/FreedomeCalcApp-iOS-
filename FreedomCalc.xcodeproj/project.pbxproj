@@ -61,16 +61,32 @@
 			isa = PBXGroup;
 			children = (
 				840195E32080A480000901B5 /* AppDelegate.swift */,
-				840195E52080A480000901B5 /* FirstViewController.swift */,
-				840195F52080A94A000901B5 /* SecondViewController.swift */,
-				840195F72080B4F8000901B5 /* ThirdViewController.swift */,
-				840195FB2080F10A000901B5 /* ForthViewController.swift */,
-				840195E72080A480000901B5 /* Main.storyboard */,
+				84ADC18D2085E5CF00DF6583 /* Controller */,
+				84ADC18E2085E5F900DF6583 /* View */,
 				840195EA2080A480000901B5 /* Assets.xcassets */,
 				840195EC2080A480000901B5 /* LaunchScreen.storyboard */,
 				840195EF2080A480000901B5 /* Info.plist */,
 			);
 			path = FreedomCalc;
+			sourceTree = "<group>";
+		};
+		84ADC18D2085E5CF00DF6583 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				840195E52080A480000901B5 /* FirstViewController.swift */,
+				840195F52080A94A000901B5 /* SecondViewController.swift */,
+				840195F72080B4F8000901B5 /* ThirdViewController.swift */,
+				840195FB2080F10A000901B5 /* ForthViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84ADC18E2085E5F900DF6583 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				840195E72080A480000901B5 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

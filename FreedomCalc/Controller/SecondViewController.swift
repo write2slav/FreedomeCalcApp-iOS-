@@ -13,18 +13,32 @@ class SecondViewController: UIViewController, UIPickerViewDataSource,UIPickerVie
     
 
     //MARK -Outlets and Properties
+    var salaryChoosen : Bool = false
+    
     
     //Unwind segue destination
     @IBAction func myToSecondViewUnwindAction(unwindSegue: UIStoryboardSegue){
     }
     @IBOutlet weak var salaryPicker: UIPickerView!
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        
-        performSegue(withIdentifier: "goToThirdView", sender: self)
+        if salaryChoosen == true{
+          performSegue(withIdentifier: "goToThirdView", sender: self)
+        }else{
+            
+            let alert = UIAlertController(title: "Salary has not been selected", message: "Please select a salary and press NEXT", preferredStyle: .alert)
+            
+            let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in
+                
+            }
+            
+            alert.addAction(dismissAction)
+            //Presenting Alert View
+            self.present(alert, animated: true, completion: nil)
         }
+    }
     
     //MARK - Instance Methods
-    let salaryArray = ["1000","1500","2000","2500","3000","3500"]
+    let salaryArray = ["1000","1500","2000","2500","3000","3500","4000","4500","5000"]
     var pickedSalary = ""
     
     override func viewDidLoad() {
@@ -33,10 +47,6 @@ class SecondViewController: UIViewController, UIPickerViewDataSource,UIPickerVie
         
         salaryPicker.delegate = self
         salaryPicker.dataSource = self
-
-        
-        
-        
        
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -63,6 +73,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource,UIPickerVie
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(salaryArray[row])
         pickedSalary = salaryArray[row]
+        salaryChoosen = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

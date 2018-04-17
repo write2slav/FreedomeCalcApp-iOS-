@@ -10,17 +10,23 @@ import UIKit
 
 class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    //MARK -Outlets and Properties
+    //MARK - Outlets and Properties
     
     let ageArray = Array(18...120).map { String($0) }
-    var tempCurAge : String = ""
-    var tempExpAge : String = ""
+
+    var tempCurAgeInt : Int = 0
+    var tempExpAgeInt : Int = 0
+    
     var ageFromUserString : String = ""
+    var curAgeChoosen : Bool = false
+    var expAgeChoosen : Bool = false
+
     var salary : String? {
         didSet{
         print("Salary received")
         }
     }
+    
     //Unwind segue destination is here
     @IBAction func myThirdViewUnwindAction(unwindSegue: UIStoryboardSegue){
     }
@@ -28,16 +34,34 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var expectedAgePicker: UIPickerView!
     
     @IBAction func nextButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "goToFourthViewController", sender: self)
-
-        
+        if (curAgeChoosen && expAgeChoosen) && (tempCurAgeInt < tempExpAgeInt) == true{
+           performSegue(withIdentifier: "goToFourthViewController", sender: self)
+            
+        }    else if tempCurAgeInt >= tempExpAgeInt {
+            let alertAgeNotChoosen = UIAlertController(title: "Current age is greater than/or equal to Exepectation age", message: "Please select correct values and press NEXT", preferredStyle: .alert)
+            
+            let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in
+            }
+            alertAgeNotChoosen.addAction(dismissAction)
+            self.present(alertAgeNotChoosen, animated: true, completion: nil)
+            print(curAgeChoosen && expAgeChoosen)
+            print(tempCurAgeInt < tempExpAgeInt)
+            
+        } else {
+            let alertAgeNotChoosen = UIAlertController(title: "Current age or Exepectation age has not been selected", message: "Please select both values and press NEXT", preferredStyle: .alert)
+            
+            let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in
+            }
+            alertAgeNotChoosen.addAction(dismissAction)
+            self.present(alertAgeNotChoosen, animated: true, completion: nil)
+            print(curAgeChoosen || expAgeChoosen)
+            print(curAgeChoosen && expAgeChoosen)
+            print(tempCurAgeInt > tempExpAgeInt)
+            print(tempExpAgeInt)
+            print(tempCurAgeInt)
+            
+        }
     }
-    //GOING BACK TO SECOND VIEW
-    @IBAction func q(_ sender: Any) {
-        print("Going back to second View")
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //PRINTING PASSED DATA
@@ -52,7 +76,8 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         currentAgePicker.tag = 1
         expectedAgePicker.tag = 2
     }
-    
+    //MARK - Delgates and Data Source
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -63,39 +88,39 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return ageArray[row]
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1 {
             print("CURRENT AGE SELECTED")
             print(ageArray[row])
-            tempCurAge = ageArray[row]
+            tempCurAgeInt = Int(ageArray[row])!
+            curAgeChoosen = true
             
         }else{
             print("EXPECTED AGE SELECTED")
             print(ageArray[row])
-            tempExpAge = ageArray[row]
+            tempExpAgeInt = Int(ageArray[row])!
+            expAgeChoosen = true
         }
         print(ageArray[row])
         
     }
-    
+    //Preparing for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        if  segue.identifier == "goBackToViewTwo"{
             print("HERE WE ARE")
        }else {
                 let destinationVC = segue.destination as! FourthViewController
-                destinationVC.result = calcMoney(salary: self.salary!, curentAge: self.tempCurAge, expectedAge: self.tempExpAge)
+                destinationVC.result = calcMoney(salary: self.salary!, curentAge: self.tempCurAgeInt, expectedAge: self.tempExpAgeInt)
 
         }
 
     }
     //Calculating amount needed never to work
-    func calcMoney(salary: String, curentAge: String, expectedAge: String)-> String{
+    func calcMoney(salary: String, curentAge: Int, expectedAge: Int)-> String{
         
         let salaryInt = Int(salary)
-        let expectedAgeInt = Int(expectedAge)
-        let currentAgeInt = Int(curentAge)
-        
-        let result = 12 * (expectedAgeInt! - currentAgeInt!) * salaryInt!
+        let result = 12 * (expectedAge - curentAge) * salaryInt!
         print(result)
         return String(result)
     }

@@ -116,13 +116,17 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         }
 
     }
-    //Calculating amount needed never to work
+    //Calculating amount needed never to work and converting to decimal formatted String
     func calcMoney(salary: String, curentAge: Int, expectedAge: Int)-> String{
         
         let salaryInt = Int(salary)
         let result = 12 * (expectedAge - curentAge) * salaryInt!
         print(result)
-        return String(result)
+        
+        let numberFormaterToDecimal = NumberFormatter()
+        numberFormaterToDecimal.numberStyle = .decimal
+        let resultInDecimalStringFormat = numberFormaterToDecimal.string(for: result)!
+        return resultInDecimalStringFormat
     }
     
     

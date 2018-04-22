@@ -10,5 +10,5 @@ import Foundation
 import RealmSwift
 
 class DataModel: Object {
-    @objc dynamic var  date : Date = Date()
+    @objc dynamic var  amountOfMoneyToBeFree : String = ""
 }

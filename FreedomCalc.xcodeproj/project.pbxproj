@@ -16,9 +16,12 @@
 		840195F82080B4F8000901B5 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840195F72080B4F8000901B5 /* ThirdViewController.swift */; };
 		840195FC2080F10A000901B5 /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840195FB2080F10A000901B5 /* ForthViewController.swift */; };
 		84C64C1F2086467E00C7C293 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C64C1E2086467E00C7C293 /* DataModel.swift */; };
+		D5AA913070361C7E03A33590 /* Pods_FreedomCalc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315DAF476A6BCFF3A0AB3C3F /* Pods_FreedomCalc.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CE8E7D87AC571CB4B5DB1EE /* Pods-FreedomCalc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreedomCalc.release.xcconfig"; path = "Pods/Target Support Files/Pods-FreedomCalc/Pods-FreedomCalc.release.xcconfig"; sourceTree = "<group>"; };
+		315DAF476A6BCFF3A0AB3C3F /* Pods_FreedomCalc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreedomCalc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		840195E02080A480000901B5 /* FreedomCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreedomCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840195E32080A480000901B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		840195E52080A480000901B5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		840195F72080B4F8000901B5 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		840195FB2080F10A000901B5 /* ForthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
 		84C64C1E2086467E00C7C293 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		A79700B829FE70BEAC9F8505 /* Pods-FreedomCalc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreedomCalc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FreedomCalc/Pods-FreedomCalc.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +41,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5AA913070361C7E03A33590 /* Pods_FreedomCalc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4877FB266B6F14BA3E86F2C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A79700B829FE70BEAC9F8505 /* Pods-FreedomCalc.debug.xcconfig */,
+				2CE8E7D87AC571CB4B5DB1EE /* Pods-FreedomCalc.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		840195D72080A480000901B5 = {
 			isa = PBXGroup;
 			children = (
 				840195E22080A480000901B5 /* FreedomCalc */,
 				840195E12080A480000901B5 /* Products */,
+				4877FB266B6F14BA3E86F2C5 /* Pods */,
+				A54C41A01C6C3B13658F2C5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +116,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A54C41A01C6C3B13658F2C5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				315DAF476A6BCFF3A0AB3C3F /* Pods_FreedomCalc.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 840195F22080A480000901B5 /* Build configuration list for PBXNativeTarget "FreedomCalc" */;
 			buildPhases = (
+				19A78CCBFCDC1FF2C79865DE /* [CP] Check Pods Manifest.lock */,
 				840195DC2080A480000901B5 /* Sources */,
 				840195DD2080A480000901B5 /* Frameworks */,
 				840195DE2080A480000901B5 /* Resources */,
+				135256CFE633E2D36B88A6B7 /* [CP] Embed Pods Frameworks */,
+				6C087D1EE96B677B48D07CA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -166,6 +193,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		135256CFE633E2D36B88A6B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FreedomCalc/Pods-FreedomCalc-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FreedomCalc/Pods-FreedomCalc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19A78CCBFCDC1FF2C79865DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FreedomCalc-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C087D1EE96B677B48D07CA9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FreedomCalc/Pods-FreedomCalc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		840195DC2080A480000901B5 /* Sources */ = {
@@ -312,6 +395,7 @@
 		};
 		840195F32080A480000901B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A79700B829FE70BEAC9F8505 /* Pods-FreedomCalc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -328,6 +412,7 @@
 		};
 		840195F42080A480000901B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CE8E7D87AC571CB4B5DB1EE /* Pods-FreedomCalc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

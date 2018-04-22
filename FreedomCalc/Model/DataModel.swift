@@ -7,8 +7,8 @@
 //
 
 import Foundation
+import RealmSwift
 
-class DataModel {
-    let data = ""
-    
+class DataModel: Object {
+    @objc dynamic var  date : Date = Date()
 }

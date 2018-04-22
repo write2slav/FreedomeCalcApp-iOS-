@@ -14,12 +14,14 @@ class SecondViewController: UIViewController, UIPickerViewDataSource,UIPickerVie
 
     //MARK -Outlets and Properties
     var salaryChoosen : Bool = false
+    let salaryArray = ["1000","1500","2000","2500","3000","3500","4000","4500","5000"]
+    var pickedSalary = ""
     
-    
-    //Unwind segue destination
-    @IBAction func myToSecondViewUnwindAction(unwindSegue: UIStoryboardSegue){
-    }
     @IBOutlet weak var salaryPicker: UIPickerView!
+
+    //Setting this Controller as Unwind segue destination
+    @IBAction func myToSecondViewUnwindAction(unwindSegue: UIStoryboardSegue){}
+   
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         if salaryChoosen == true{
           performSegue(withIdentifier: "goToThirdView", sender: self)
@@ -36,25 +38,17 @@ class SecondViewController: UIViewController, UIPickerViewDataSource,UIPickerVie
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
     //MARK - Instance Methods
-    let salaryArray = ["1000","1500","2000","2500","3000","3500","4000","4500","5000"]
-    var pickedSalary = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("secondViewLoaded")
         
         salaryPicker.delegate = self
         salaryPicker.dataSource = self
-       
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     //MARK - Delgates and Data Source
     
@@ -71,17 +65,11 @@ class SecondViewController: UIViewController, UIPickerViewDataSource,UIPickerVie
         return salaryArray[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(salaryArray[row])
         pickedSalary = salaryArray[row]
         salaryChoosen = true
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ThirdViewController
         destinationVC.salary = pickedSalary
     }
-    
-    
-    
-    
 }

@@ -16,47 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-       
-        //Create a category
-        let generalCategory = UNNotificationCategory(identifier: "GENERAL",
-                                                     actions: [],
-                                                     intentIdentifiers: [],
-                                                     options: .customDismissAction)
-       
-        // Register the category.
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-            // Enable or disable features based on authorization.
-            // Register the category.
-
-            center.setNotificationCategories([generalCategory])
-
-        }
-        let dataToPass = DataModel()
-        print(dataToPass.data)
-        let content = UNMutableNotificationContent()
-        content.title = NSString.localizedUserNotificationString(forKey: dataToPass.data, arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "Rise and shine! It's morning time!",
-                                                                arguments: nil)
-        // Assign the category (and the associated actions).
-        content.categoryIdentifier = "TIMER_EXPIRED"
-        
-        // Configure the trigger for a 7am wakeup.
-        var dateInfo = DateComponents()
-        dateInfo.hour = 15
-        dateInfo.minute = 05
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
-        
-        // Create the request object.
-        let request = UNNotificationRequest(identifier: "MorningAlarm", content: content, trigger: trigger)
-        
-        // Schedule the request.
-        center.add(request) { (error : Error?) in
-            if let theError = error {
-                print(theError.localizedDescription)
-            }
-        }
+//       
         return true
     }
 

@@ -18,12 +18,13 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var tempExpAgeInt : Int = 0
     
     var ageFromUserString : String = ""
+    
     var curAgeChoosen : Bool = false
     var expAgeChoosen : Bool = false
 
     var salary : String? {
         didSet{
-        print("Salary received")
+        print("Salary received\(salary!)")
         }
     }
     
@@ -44,9 +45,7 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             }
             alertAgeNotChoosen.addAction(dismissAction)
             self.present(alertAgeNotChoosen, animated: true, completion: nil)
-            print(curAgeChoosen && expAgeChoosen)
-            print(tempCurAgeInt < tempExpAgeInt)
-            
+        
         } else {
             let alertAgeNotChoosen = UIAlertController(title: "Current age or Exepectation age has not been selected", message: "Please select both values and press NEXT", preferredStyle: .alert)
             
@@ -54,18 +53,11 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             }
             alertAgeNotChoosen.addAction(dismissAction)
             self.present(alertAgeNotChoosen, animated: true, completion: nil)
-            print(curAgeChoosen || expAgeChoosen)
-            print(curAgeChoosen && expAgeChoosen)
-            print(tempCurAgeInt > tempExpAgeInt)
-            print(tempExpAgeInt)
-            print(tempCurAgeInt)
             
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        //PRINTING PASSED DATA
-        print("Picked salary\(salary!)")
 
         currentAgePicker.dataSource = self
         currentAgePicker.delegate = self
@@ -110,27 +102,23 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
        if  segue.identifier == "goBackToViewTwo"{
             print("HERE WE ARE")
        }else {
-                let destinationVC = segue.destination as! FourthViewController
-                destinationVC.result = calcMoney(salary: self.salary!, curentAge: self.tempCurAgeInt, expectedAge: self.tempExpAgeInt)
+        //Passing data to next view controller via function calculateFreedomAmount
+        let destinationVC = segue.destination as! FourthViewController
+        destinationVC.result = calculateFreedomAmount(salary: self.salary!, curentAge: self.tempCurAgeInt, expectedAge: self.tempExpAgeInt)
 
         }
 
     }
     //Calculating amount needed never to work and converting to decimal formatted String
-    func calcMoney(salary: String, curentAge: Int, expectedAge: Int)-> String{
+    func calculateFreedomAmount(salary: String, curentAge: Int, expectedAge: Int)-> String{
         
         let salaryInt = Int(salary)
         let result = 12 * (expectedAge - curentAge) * salaryInt!
-        print(result)
         
         let numberFormaterToDecimal = NumberFormatter()
         numberFormaterToDecimal.numberStyle = .decimal
         let resultInDecimalStringFormat = numberFormaterToDecimal.string(for: result)!
         return resultInDecimalStringFormat
     }
-    
-    
-    
-    
 }
 

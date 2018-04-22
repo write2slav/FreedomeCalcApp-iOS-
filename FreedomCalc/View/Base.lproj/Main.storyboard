@@ -242,8 +242,8 @@
                                     <segue destination="u5q-AL-H1Z" kind="unwind" unwindAction="myThirdViewUnwindActionWithUnwindSegue:" id="uMd-wj-roh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$ YOUR AD HERE $$$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bM0-t2-1zD">
-                                <rect key="frame" x="0.0" y="416.5" width="320" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TARGET IS SET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bM0-t2-1zD">
+                                <rect key="frame" x="0.0" y="416.5" width="320" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -254,6 +254,18 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puq-Wm-C3T">
+                                <rect key="frame" x="0.0" y="478" width="320" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="SHARE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackButtonPressed:" destination="ckq-MT-77q" eventType="touchUpInside" id="Ypl-lx-ql4"/>
+                                    <action selector="shareButtonPressed:" destination="ckq-MT-77q" eventType="touchUpInside" id="VhP-ar-Tuo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -265,8 +277,11 @@
                             <constraint firstItem="Ko7-Yf-3rp" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="MDa-2m-Jn7"/>
                             <constraint firstItem="8L8-oT-mfn" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="Mcn-Vi-rym"/>
                             <constraint firstItem="sxU-Yg-z0H" firstAttribute="centerX" secondItem="qsW-g8-EV7" secondAttribute="centerX" id="QKU-cy-TCv"/>
+                            <constraint firstItem="puq-Wm-C3T" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="XWV-mq-qAn"/>
+                            <constraint firstItem="sxU-Yg-z0H" firstAttribute="top" secondItem="puq-Wm-C3T" secondAttribute="bottom" id="atO-3B-Stu"/>
                             <constraint firstItem="bM0-t2-1zD" firstAttribute="centerX" secondItem="qsW-g8-EV7" secondAttribute="centerX" id="cEi-p1-SgX"/>
                             <constraint firstItem="yXB-zw-Lg2" firstAttribute="centerX" secondItem="qsW-g8-EV7" secondAttribute="centerX" id="l4e-4T-btX"/>
+                            <constraint firstItem="puq-Wm-C3T" firstAttribute="trailing" secondItem="5fc-2L-nqC" secondAttribute="trailing" id="nzK-dj-93q"/>
                             <constraint firstItem="sxU-Yg-z0H" firstAttribute="bottom" secondItem="5fc-2L-nqC" secondAttribute="bottom" id="olH-mM-O0c"/>
                             <constraint firstItem="8L8-oT-mfn" firstAttribute="top" secondItem="Ko7-Yf-3rp" secondAttribute="bottom" constant="50" id="owo-X1-VxW"/>
                             <constraint firstItem="bM0-t2-1zD" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="yHe-ZD-5Ss"/>
@@ -276,7 +291,9 @@
                         <viewLayoutGuide key="safeArea" id="5fc-2L-nqC"/>
                     </view>
                     <connections>
+                        <outlet property="goBackButton" destination="sxU-Yg-z0H" id="0g8-5D-JLq"/>
                         <outlet property="resultTextField" destination="8L8-oT-mfn" id="6Tl-Mw-Jqm"/>
+                        <outlet property="shareButton" destination="puq-Wm-C3T" id="vVn-s5-qCD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ca-1W-Bxi" userLabel="First Responder" sceneMemberID="firstResponder"/>

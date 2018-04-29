@@ -24,7 +24,7 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
 
     var salary : String? {
         didSet{
-        print("Salary received\(salary!)")
+        print("RECEIVED SALARY FROM FIRSTVIEWCONTROLLER \(salary!)")
         }
     }
     
@@ -35,12 +35,12 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var expectedAgePicker: UIPickerView!
     
     @IBAction func nextButtonPressed(_ sender: Any) {
+        
         if (curAgeChoosen && expAgeChoosen) && (tempCurAgeInt < tempExpAgeInt) == true{
            performSegue(withIdentifier: "goToFourthViewController", sender: self)
             
-        }    else if tempCurAgeInt >= tempExpAgeInt {
+        } else if tempCurAgeInt >= tempExpAgeInt {
             let alertAgeNotChoosen = UIAlertController(title: "Current age is greater than/or equal to Exepectation age", message: "Please select correct values and press NEXT", preferredStyle: .alert)
-            
             let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in
             }
             alertAgeNotChoosen.addAction(dismissAction)
@@ -48,12 +48,10 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         } else {
             let alertAgeNotChoosen = UIAlertController(title: "Current age or Exepectation age has not been selected", message: "Please select both values and press NEXT", preferredStyle: .alert)
-            
             let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in
             }
             alertAgeNotChoosen.addAction(dismissAction)
             self.present(alertAgeNotChoosen, animated: true, completion: nil)
-            
         }
     }
     override func viewDidLoad() {
@@ -74,7 +72,6 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
         return ageArray.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -88,20 +85,19 @@ class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             tempCurAgeInt = Int(ageArray[row])!
             curAgeChoosen = true
             
-        }else{
+        } else {
             print("EXPECTED AGE SELECTED")
             print(ageArray[row])
             tempExpAgeInt = Int(ageArray[row])!
             expAgeChoosen = true
         }
-        print(ageArray[row])
         
     }
     //Preparing for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        if  segue.identifier == "goBackToViewTwo"{
             print("HERE WE ARE")
-       }else {
+       } else {
         //Passing data to next view controller via function calculateFreedomAmount
         let destinationVC = segue.destination as! FourthViewController
         destinationVC.result = calculateFreedomAmount(salary: self.salary!, curentAge: self.tempCurAgeInt, expectedAge: self.tempExpAgeInt)

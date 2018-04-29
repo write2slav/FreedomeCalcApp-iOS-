@@ -262,8 +262,19 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="goBackButtonPressed:" destination="ckq-MT-77q" eventType="touchUpInside" id="Ypl-lx-ql4"/>
                                     <action selector="shareButtonPressed:" destination="ckq-MT-77q" eventType="touchUpInside" id="VhP-ar-Tuo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfp-cc-hig">
+                                <rect key="frame" x="0.0" y="436" width="320" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackButtonPressed:" destination="ckq-MT-77q" eventType="touchUpInside" id="b00-PL-ify"/>
+                                    <action selector="saveButtonPressed:" destination="ckq-MT-77q" eventType="touchUpInside" id="e6L-j6-Oer"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -271,6 +282,7 @@
                         <constraints>
                             <constraint firstItem="yXB-zw-Lg2" firstAttribute="top" secondItem="8L8-oT-mfn" secondAttribute="bottom" constant="50" id="5tv-6S-Rk0"/>
                             <constraint firstItem="Ko7-Yf-3rp" firstAttribute="top" secondItem="qsW-g8-EV7" secondAttribute="top" constant="20" id="7Um-x1-8VB"/>
+                            <constraint firstItem="puq-Wm-C3T" firstAttribute="top" secondItem="vfp-cc-hig" secondAttribute="bottom" id="7Xa-PN-UWm"/>
                             <constraint firstItem="sxU-Yg-z0H" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="DSn-fz-s33"/>
                             <constraint firstItem="bM0-t2-1zD" firstAttribute="top" secondItem="yXB-zw-Lg2" secondAttribute="bottom" constant="25" id="Ek6-RS-9Gu"/>
                             <constraint firstItem="Ko7-Yf-3rp" firstAttribute="centerX" secondItem="qsW-g8-EV7" secondAttribute="centerX" id="Gg1-iR-Uf4"/>
@@ -280,10 +292,12 @@
                             <constraint firstItem="puq-Wm-C3T" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="XWV-mq-qAn"/>
                             <constraint firstItem="sxU-Yg-z0H" firstAttribute="top" secondItem="puq-Wm-C3T" secondAttribute="bottom" id="atO-3B-Stu"/>
                             <constraint firstItem="bM0-t2-1zD" firstAttribute="centerX" secondItem="qsW-g8-EV7" secondAttribute="centerX" id="cEi-p1-SgX"/>
+                            <constraint firstItem="vfp-cc-hig" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="dQA-bX-X7W"/>
                             <constraint firstItem="yXB-zw-Lg2" firstAttribute="centerX" secondItem="qsW-g8-EV7" secondAttribute="centerX" id="l4e-4T-btX"/>
                             <constraint firstItem="puq-Wm-C3T" firstAttribute="trailing" secondItem="5fc-2L-nqC" secondAttribute="trailing" id="nzK-dj-93q"/>
                             <constraint firstItem="sxU-Yg-z0H" firstAttribute="bottom" secondItem="5fc-2L-nqC" secondAttribute="bottom" id="olH-mM-O0c"/>
                             <constraint firstItem="8L8-oT-mfn" firstAttribute="top" secondItem="Ko7-Yf-3rp" secondAttribute="bottom" constant="50" id="owo-X1-VxW"/>
+                            <constraint firstItem="vfp-cc-hig" firstAttribute="trailing" secondItem="5fc-2L-nqC" secondAttribute="trailing" id="tz2-RU-Pua"/>
                             <constraint firstItem="bM0-t2-1zD" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="yHe-ZD-5Ss"/>
                             <constraint firstItem="yXB-zw-Lg2" firstAttribute="leading" secondItem="5fc-2L-nqC" secondAttribute="leading" id="z4o-ZX-c1f"/>
                             <constraint firstItem="8L8-oT-mfn" firstAttribute="centerX" secondItem="qsW-g8-EV7" secondAttribute="centerX" id="zF8-G7-BVJ"/>
@@ -293,6 +307,7 @@
                     <connections>
                         <outlet property="goBackButton" destination="sxU-Yg-z0H" id="0g8-5D-JLq"/>
                         <outlet property="resultTextField" destination="8L8-oT-mfn" id="6Tl-Mw-Jqm"/>
+                        <outlet property="saveButton" destination="vfp-cc-hig" id="hhA-iz-JKJ"/>
                         <outlet property="shareButton" destination="puq-Wm-C3T" id="vVn-s5-qCD"/>
                     </connections>
                 </viewController>

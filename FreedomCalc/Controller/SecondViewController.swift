@@ -23,18 +23,15 @@ class SecondViewController: UIViewController, UIPickerViewDataSource,UIPickerVie
     @IBAction func myToSecondViewUnwindAction(unwindSegue: UIStoryboardSegue){}
    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        if salaryChoosen == true{
+        if salaryChoosen {
           performSegue(withIdentifier: "goToThirdView", sender: self)
-        }else{
-            
+        } else {
+            print("SALARY HAS NOT BEEN SELECTED")
             let alert = UIAlertController(title: "Salary has not been selected", message: "Please select a salary and press NEXT", preferredStyle: .alert)
-            
             let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in
-                
             }
-            
             alert.addAction(dismissAction)
-            //Presenting Alert View
+            //Presenting Alert View "Salary has not been selected"
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -53,20 +50,18 @@ class SecondViewController: UIViewController, UIPickerViewDataSource,UIPickerVie
     //MARK - Delgates and Data Source
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-
         return salaryArray.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-
         return salaryArray[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickedSalary = salaryArray[row]
         salaryChoosen = true
+        print("SALARY HAS BEEN SELECTED")
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ThirdViewController
